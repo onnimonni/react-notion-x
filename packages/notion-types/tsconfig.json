@@ -1,13 +1,12 @@
 {
-  "extends": "../../tsconfig.base",
-  "compilerOptions": {
-    "composite": false,
-    "rootDir": "src",
-    "outDir": "build",
-    "tsBuildInfoFile": "build/.tsbuildinfo",
-    "declarationMap": true,
-    "emitDeclarationOnly": true
-  },
-  "include": [
-    "src/**/*"
-  ],}
+	"extends": "../../tsconfig.base",
+	"compilerOptions": {
+		"composite": false,
+		"rootDir": "src",
+		"outDir": "build",
+		"tsBuildInfoFile": "build/.tsbuildinfo",
+		"declarationMap": true,
+		"emitDeclarationOnly": true
+	},
+	"include": ["src/**/*"]
+}

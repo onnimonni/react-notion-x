@@ -1,42 +1,38 @@
 {
-  "name": "notion-client",
-  "version": "6.16.1",
-  "type": "module",
-  "description": "Robust TypeScript client for the unofficial Notion API.",
-  "repository": "NotionX/react-notion-x",
-  "author": "Travis Fischer <travis@transitivebullsh.it>",
-  "license": "MIT",
-  "main": "./build/index.js",
-  "module": "./build/index.js",
-  "types": "./build/index.d.ts",
-  "sideEffects": false,
-  "files": [
-    "build"
-  ],
-  "engines": {
-    "node": ">=12"
-  },
-  "scripts": {
-    "build": "tsup",
-    "clean": "rm -rf build",
-    "dev": "tsup --watch",
-    "lint": "eslint '**/*.{ts,tsx}'",
-    "publish": "pnpm publish",
-    "test": "ava"
-  },
-  "dependencies": {
-    "got": "^11.8.1",
-    "notion-types": "workspace:*",
-    "notion-utils": "workspace:*",
-    "p-map": "^5.3.0"
-  },
-  "ava": {
-    "snapshotDir": ".snapshots",
-    "extensions": {
-      "ts": "module"
-    },
-    "nodeArguments": [
-      "--import=tsimp"
-    ]
-  }
+	"name": "notion-client",
+	"version": "6.16.1",
+	"type": "module",
+	"description": "Robust TypeScript client for the unofficial Notion API.",
+	"repository": "NotionX/react-notion-x",
+	"author": "Travis Fischer <travis@transitivebullsh.it>",
+	"license": "MIT",
+	"main": "./build/index.js",
+	"module": "./build/index.js",
+	"types": "./build/index.d.ts",
+	"sideEffects": false,
+	"files": ["build"],
+	"engines": {
+		"node": ">=12"
+	},
+	"scripts": {
+		"build": "tsup",
+		"clean": "rm -rf build",
+		"dev": "tsup --watch",
+		"lint": "eslint '**/*.{ts,tsx}'",
+		"publish": "pnpm publish",
+		"test": "ava"
+	},
+	"dependencies": {
+		"got": "^11.8.1",
+		"notion-types": "workspace:*",
+		"notion-utils": "workspace:*",
+		"p-map": "^5.3.0"
+	},
+	"ava": {
+		"snapshotDir": ".snapshots",
+		"extensions": {
+			"ts": "module"
+		},
+		"nodeArguments": ["--import=tsimp"]
+	}
 }

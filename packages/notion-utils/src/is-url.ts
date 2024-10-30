@@ -1,3 +1,3 @@
-import isUrl from 'is-url-superb'
+import isUrl from "is-url-superb";
 
-export { isUrl }
+export { isUrl };

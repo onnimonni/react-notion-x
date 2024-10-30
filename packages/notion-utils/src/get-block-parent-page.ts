@@ -1,4 +1,4 @@
-import * as types from 'notion-types'
+import type * as types from "notion-types";
 
 /**
  * Returns the parent page block containing a given page.
@@ -7,38 +7,38 @@ import * as types from 'notion-types'
  * some non-page content blocks can contain sub-blocks.
  */
 export const getBlockParentPage = (
-  block: types.Block,
-  recordMap: types.ExtendedRecordMap,
-  {
-    inclusive = false
-  }: {
-    inclusive?: boolean
-  } = {}
+	block: types.Block,
+	recordMap: types.ExtendedRecordMap,
+	{
+		inclusive = false,
+	}: {
+		inclusive?: boolean;
+	} = {},
 ): types.PageBlock | null => {
-  let currentRecord: types.Block | types.Collection = block
+	let currentRecord: types.Block | types.Collection = block;
 
-  while (currentRecord != null) {
-    if (inclusive && (currentRecord as types.Block)?.type === 'page') {
-      return currentRecord as types.PageBlock
-    }
+	while (currentRecord != null) {
+		if (inclusive && (currentRecord as types.Block)?.type === "page") {
+			return currentRecord as types.PageBlock;
+		}
 
-    const parentId: string = currentRecord.parent_id
-    const parentTable = currentRecord.parent_table
+		const parentId: string = currentRecord.parent_id;
+		const parentTable = currentRecord.parent_table;
 
-    if (!parentId) {
-      break
-    }
+		if (!parentId) {
+			break;
+		}
 
-    if (parentTable === 'collection') {
-      currentRecord = recordMap.collection[parentId]?.value
-    } else {
-      currentRecord = recordMap.block[parentId]?.value
+		if (parentTable === "collection") {
+			currentRecord = recordMap.collection[parentId]?.value;
+		} else {
+			currentRecord = recordMap.block[parentId]?.value;
 
-      if ((currentRecord as types.Block)?.type === 'page') {
-        return currentRecord as types.PageBlock
-      }
-    }
-  }
+			if ((currentRecord as types.Block)?.type === "page") {
+				return currentRecord as types.PageBlock;
+			}
+		}
+	}
 
-  return null
-}
+	return null;
+};

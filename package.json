@@ -1,57 +1,51 @@
 {
-  "name": "notion",
-  "private": true,
-  "description": "Fast and accurate React renderer for Notion. TS batteries included.",
-  "repository": "NotionX/react-notion-x",
-  "author": "Travis Fischer <travis@transitivebullsh.it>",
-  "license": "MIT",
-  "version": "6.15.8",
-  "engines": {
-    "node": ">=12"
-  },
-  "workspaces": [
-    "packages/*",
-    "examples/*"
-  ],
-  "scripts": {
-    "build": "turbo run build",
-    "clean": "turbo run clean",
-    "dev": "turbo run dev --no-cache  --continue",
-    "format": "prettier '**/*.{ts,tsx}' --write",
-    "lint": "turbo run lint",
-    "start": "turbo run start",
-    "test": "turbo run test",
-    "test-format": "prettier '**/*.{ts,tsx}' --check",
-    "publish": "turbo publish",
-    "prepare": "husky install",
-    "pre-commit": "lint-staged"
-  },
-  "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^3.3.1",
-    "@types/node": "^18.11.0",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
-    "ava": "^6.2.0",
-    "del-cli": "^4.0.1",
-    "eslint": "^8.25.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^8.0.1",
-    "lerna": "^4.0.0",
-    "lint-staged": "^12.3.6",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
-    "ts-node": "^10.9.1",
-    "tsimp": "^2.0.12",
-    "tsup": "^6.2.3",
-    "turbo": "^1.8.8",
-    "typescript": "^4.8.4"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
-    ]
-  }
+	"name": "notion",
+	"private": true,
+	"description": "Fast and accurate React renderer for Notion. TS batteries included.",
+	"repository": "NotionX/react-notion-x",
+	"author": "Travis Fischer <travis@transitivebullsh.it>",
+	"license": "MIT",
+	"version": "6.15.8",
+	"engines": {
+		"node": ">=12"
+	},
+	"workspaces": ["packages/*", "examples/*"],
+	"scripts": {
+		"build": "turbo run build",
+		"clean": "turbo run clean",
+		"dev": "turbo run dev --no-cache  --continue",
+		"format": "prettier '**/*.{ts,tsx}' --write",
+		"lint": "turbo run lint",
+		"start": "turbo run start",
+		"test": "turbo run test",
+		"test-format": "prettier '**/*.{ts,tsx}' --check",
+		"publish": "turbo publish",
+		"prepare": "husky install",
+		"pre-commit": "biome check --write"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@trivago/prettier-plugin-sort-imports": "^3.3.1",
+		"@types/node": "^18.11.0",
+		"@typescript-eslint/eslint-plugin": "^5.40.0",
+		"@typescript-eslint/parser": "^5.40.0",
+		"ava": "^6.2.0",
+		"del-cli": "^4.0.1",
+		"eslint": "^8.25.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-react": "^7.31.10",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"husky": "^8.0.1",
+		"lerna": "^4.0.0",
+		"lint-staged": "^12.3.6",
+		"npm-run-all": "^4.1.5",
+		"ts-node": "^10.9.1",
+		"tsimp": "^2.0.12",
+		"tsup": "^6.2.3",
+		"turbo": "^1.8.8",
+		"typescript": "^4.8.4"
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": ["prettier --write", "eslint --fix"]
+	}
 }
