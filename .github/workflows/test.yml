@@ -6,9 +6,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
           cache: pnpm
@@ -19,9 +19,9 @@ jobs:
   build-minimal:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
           cache: pnpm
@@ -37,9 +37,9 @@ jobs:
   build-full:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
           cache: pnpm
@@ -57,9 +57,9 @@ jobs:
   # build-full-official-api:
   #   runs-on: ubuntu-latest
   #   steps:
-  #     - uses: actions/checkout@v3
+  #     - uses: actions/checkout@v4
 
-  #     - uses: actions/setup-node@v3
+  #     - uses: actions/setup-node@v4
   #       with:
   #         node-version: 16
   #         cache: pnpm
