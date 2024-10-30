@@ -1,27 +1,27 @@
 {
-  "name": "notion-x-example-minimal",
-  "version": "6.16.0",
-  "private": true,
-  "type": "commonjs",
-  "scripts": {
-    "build": "next build",
-    "clean": "rm -rf .next",
-    "dev": "next dev",
-    "lint": "next lint",
-    "start": "next start",
-    "vercel-deploy": "vercel deploy"
-  },
-  "dependencies": {
-    "next": "^12.1.0",
-    "notion-client": "workspace:*",
-    "notion-types": "workspace:*",
-    "notion-utils": "workspace:*",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-notion-x": "workspace:*"
-  },
-  "devDependencies": {
-    "@types/node": "^16.11.2",
-    "typescript": "^4.6.2"
-  }
+	"name": "notion-x-example-minimal",
+	"version": "6.16.1",
+	"private": true,
+	"type": "commonjs",
+	"scripts": {
+		"build": "next build",
+		"clean": "rm -rf .next",
+		"dev": "next dev",
+		"lint": "next lint",
+		"start": "next start",
+		"vercel-deploy": "vercel deploy"
+	},
+	"dependencies": {
+		"next": "^12.1.0",
+		"notion-client": "workspace:*",
+		"notion-types": "workspace:*",
+		"notion-utils": "workspace:*",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-notion-x": "workspace:*"
+	},
+	"devDependencies": {
+		"@types/node": "^16.11.2",
+		"typescript": "^4.6.2"
+	}
 }

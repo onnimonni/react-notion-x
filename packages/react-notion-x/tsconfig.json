@@ -1,19 +1,17 @@
 {
-  "extends": "../../tsconfig.base",
-  "compilerOptions": {
-    "composite": false,
-    "rootDir": "src",
-    "declaration": true,
-    "declarationMap": true,
-    "outDir": "build",
-    "tsBuildInfoFile": "build/.tsbuildinfo",
-    "emitDeclarationOnly": true,
-    "lib": ["DOM", "ESNext"],
-    "noImplicitReturns": false,
-    "skipLibCheck": true,
-    "jsx": "react"
-  },
-  "include": [
-    "src/**/*"
-  ],
+	"extends": "../../tsconfig.base",
+	"compilerOptions": {
+		"composite": false,
+		"rootDir": "src",
+		"declaration": true,
+		"declarationMap": true,
+		"outDir": "build",
+		"tsBuildInfoFile": "build/.tsbuildinfo",
+		"emitDeclarationOnly": true,
+		"lib": ["DOM", "ESNext"],
+		"noImplicitReturns": false,
+		"skipLibCheck": true,
+		"jsx": "react"
+	},
+	"include": ["src/**/*"]
 }

@@ -6,66 +6,90 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
         with:
-          node-version: 16
-          cache: yarn
+          version: 9
+          run_install: false
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
 
   build-minimal:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
         with:
-          node-version: 16
-          cache: yarn
+          version: 9
+          run_install: false
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
 
       - name: Build minimal example
         run: |
           cd examples/minimal
-          yarn build
+          pnpm build
 
   build-full:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
         with:
-          node-version: 16
-          cache: yarn
+          version: 9
+          run_install: false
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
 
       - name: Build full example
         run: |
           cd examples/full
-          yarn build
+          pnpm build
 
   # TODO: using the official API with GitHub Actions results in too much rate
   # limiting and false negative build failures, so we're disabling it for now.
   # build-full-official-api:
   #   runs-on: ubuntu-latest
   #   steps:
-  #     - uses: actions/checkout@v3
+  #     - uses: actions/checkout@v4
 
-  #     - uses: actions/setup-node@v3
+  #     - uses: pnpm/action-setup@v4
+  #       name: Install pnpm
+  #       with:
+  #         version: 9
+  #         run_install: false
+
+  #     - uses: actions/setup-node@v4
   #       with:
   #         node-version: 16
-  #         cache: yarn
+  #         cache: pnpm
 
-  #     - run: yarn install --frozen-lockfile
-  #     - run: yarn build
+  #     - run: pnpm install --frozen-lockfile
+  #     - run: pnpm build
 
   #     - name: Build full example using the official Notion API
 
@@ -75,4 +99,4 @@ jobs:
 
   #       run: |
   #         cd examples/full
-  #         yarn build
+  #         pnpm build

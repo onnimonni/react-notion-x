@@ -1,15 +1,16 @@
-import { formatDate } from './format-date'
+import { formatDate } from "./format-date";
 
 export interface NotionDateTime {
-  type: 'datetime'
-  start_date: string
-  start_time?: string
-  time_zone?: string
+	type: "datetime";
+	start_date: string;
+	start_time?: string;
+	time_zone?: string;
 }
 
 export const formatNotionDateTime = (datetime: NotionDateTime) => {
-  const dateString = `${datetime.start_time || ''} ${datetime.start_date} ${
-    datetime.time_zone || ''
-  }`
-  return formatDate(dateString)
-}
+	// Adding +00:00 preserve the time in UTC.
+	const dateString = `${datetime.start_date}T${
+		datetime.start_time || "00:00"
+	}+00:00`;
+	return formatDate(dateString);
+};

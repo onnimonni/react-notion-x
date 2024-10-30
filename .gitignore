@@ -8,6 +8,9 @@ build
 dist
 types
 
+# Typescript builds
+packages/*/.tsimp
+
 # misc
 .DS_Store
 .env

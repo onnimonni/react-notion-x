@@ -1,9 +1,8 @@
 export const defaultMapPageUrl = (rootPageId?: string) => (pageId: string) => {
-  pageId = (pageId || '').replace(/-/g, '')
+	pageId = (pageId || "").replace(/-/g, "");
 
-  if (rootPageId && pageId === rootPageId) {
-    return '/'
-  } else {
-    return `/${pageId}`
-  }
-}
+	if (rootPageId && pageId === rootPageId) {
+		return "/";
+	}
+	return `/${pageId}`;
+};

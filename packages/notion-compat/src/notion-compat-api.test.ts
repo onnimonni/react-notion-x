@@ -1,8 +1,8 @@
-import test from 'ava'
+import test from "ava";
 
-test('dummy', async (t) => {
-  t.truthy(true)
-})
+test("dummy", async (t) => {
+	t.truthy(true);
+});
 
 /*
  TODO: this test currently fails because of an [esbuild issue](https://github.com/evanw/esbuild/issues/1921):
