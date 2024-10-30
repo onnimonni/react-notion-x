@@ -34,9 +34,8 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
 export async function search(params: SearchParams): Promise<SearchResults> {
 	if (notion instanceof NotionAPI) {
 		return notion.search(params);
-	} else {
-		console.error(
-			"NotionCompatAPI does not have a search method. Use NotionAPI instead.",
-		);
 	}
+	console.error(
+		"NotionCompatAPI does not have a search method. Use NotionAPI instead.",
+	);
 }

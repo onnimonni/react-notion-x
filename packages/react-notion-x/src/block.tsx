@@ -105,7 +105,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 	switch (block.type) {
 		case "collection_view_page":
 		// fallthrough
-		case "page":
+		case "page": {
 			if (level === 0) {
 				const {
 					page_icon = defaultPageIcon,
@@ -252,52 +252,51 @@ export const Block: React.FC<BlockProps> = (props) => {
 							</div>
 						</div>
 					);
-				} else {
-					return (
-						<main
-							className={cs(
-								"notion",
-								darkMode ? "dark-mode" : "light-mode",
-								"notion-page",
-								page_full_width && "notion-full-width",
-								page_small_text && "notion-small-text",
-								blockId,
-								className,
-								bodyClassName,
-							)}
-						>
-							<div className="notion-viewport" />
-
-							{pageHeader}
-
-							{(block.type === "collection_view_page" ||
-								(block.type === "page" &&
-									block.parent_table === "collection")) && (
-								<components.Collection block={block} ctx={ctx} />
-							)}
-
-							{block.type !== "collection_view_page" && children}
-
-							{pageFooter}
-						</main>
-					);
 				}
-			} else {
-				const blockColor = block.format?.block_color;
-
 				return (
-					<components.PageLink
+					<main
 						className={cs(
-							"notion-page-link",
-							blockColor && `notion-${blockColor}`,
+							"notion",
+							darkMode ? "dark-mode" : "light-mode",
+							"notion-page",
+							page_full_width && "notion-full-width",
+							page_small_text && "notion-small-text",
 							blockId,
+							className,
+							bodyClassName,
 						)}
-						href={mapPageUrl(block.id)}
 					>
-						<PageTitle block={block} />
-					</components.PageLink>
+						<div className="notion-viewport" />
+
+						{pageHeader}
+
+						{(block.type === "collection_view_page" ||
+							(block.type === "page" &&
+								block.parent_table === "collection")) && (
+							<components.Collection block={block} ctx={ctx} />
+						)}
+
+						{block.type !== "collection_view_page" && children}
+
+						{pageFooter}
+					</main>
 				);
 			}
+			const blockColor = block.format?.block_color;
+
+			return (
+				<components.PageLink
+					className={cs(
+						"notion-page-link",
+						blockColor && `notion-${blockColor}`,
+						blockId,
+					)}
+					href={mapPageUrl(block.id)}
+				>
+					<PageTitle block={block} />
+				</components.PageLink>
+			);
+		}
 
 		case "header":
 		// fallthrough
@@ -390,9 +389,8 @@ export const Block: React.FC<BlockProps> = (props) => {
 						<div>{children}</div>
 					</details>
 				);
-			} else {
-				return headerBlock;
 			}
+			return headerBlock;
 		}
 
 		case "divider":
@@ -532,7 +530,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 
 		case "column": {
 			// note: notion uses 46px
-			const spacerWidth = `min(32px, 4vw)`;
+			const spacerWidth = "min(32px, 4vw)";
 			const ratio = block.format?.column_ratio || 0.5;
 			const parent = recordMap.block[block.parent_id]?.value;
 			const columns =
@@ -583,25 +581,24 @@ export const Block: React.FC<BlockProps> = (props) => {
 		case "callout":
 			if (components.Callout) {
 				return <components.Callout block={block} className={blockId} />;
-			} else {
-				return (
-					<div
-						className={cs(
-							"notion-callout",
-							block.format?.block_color &&
-								`notion-${block.format?.block_color}_co`,
-							blockId,
-						)}
-					>
-						<PageIcon block={block} />
-
-						<div className="notion-callout-text">
-							<Text value={block.properties?.title} block={block} />
-							{children}
-						</div>
-					</div>
-				);
 			}
+			return (
+				<div
+					className={cs(
+						"notion-callout",
+						block.format?.block_color &&
+							`notion-${block.format?.block_color}_co`,
+						blockId,
+					)}
+				>
+					<PageIcon block={block} />
+
+					<div className="notion-callout-text">
+						<Text value={block.properties?.title} block={block} />
+						{children}
+					</div>
+				</div>
+			);
 
 		case "bookmark": {
 			if (!block.properties) return null;
@@ -740,7 +737,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 						<div
 							className={cs(
 								"notion-to-do-body",
-								isChecked && `notion-to-do-checked`,
+								isChecked && "notion-to-do-checked",
 							)}
 						>
 							<Text value={block.properties?.title} block={block} />
@@ -832,13 +829,11 @@ export const Block: React.FC<BlockProps> = (props) => {
 		default:
 			if (process.env.NODE_ENV !== "production") {
 				console.log(
-					"Unsupported type " + (block as any).type,
+					`Unsupported type ${(block as any).type}`,
 					JSON.stringify(block, null, 2),
 				);
 			}
 
 			return <div />;
 	}
-
-	return null;
 };

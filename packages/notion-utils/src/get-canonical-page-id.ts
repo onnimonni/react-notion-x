@@ -27,9 +27,8 @@ export const getCanonicalPageId = (
 		if (slug) {
 			if (uuid) {
 				return `${slug}-${id}`;
-			} else {
-				return slug;
 			}
+			return slug;
 		}
 	}
 

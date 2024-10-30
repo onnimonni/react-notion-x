@@ -70,9 +70,8 @@ export function evalFormula(
 					// TODO: handle chceckbox properties
 					if (typeof text === "string") {
 						return text === "true";
-					} else {
-						return !!text;
 					}
+					return !!text;
 
 				case "date": {
 					// console.log('date', text, value)
@@ -86,17 +85,15 @@ export function evalFormula(
 								date.getUTCMonth(),
 								date.getUTCDate(),
 							);
-						} else {
-							const date = new Date(v.start_date);
-							return new Date(
-								date.getUTCFullYear(),
-								date.getUTCMonth(),
-								date.getUTCDate(),
-							);
 						}
-					} else {
-						return new Date(text);
+						const date = new Date(v.start_date);
+						return new Date(
+							date.getUTCFullYear(),
+							date.getUTCMonth(),
+							date.getUTCDate(),
+						);
 					}
+					return new Date(text);
 				}
 
 				default:
@@ -144,7 +141,7 @@ function evalFunctionFormula(
 
 		case "equal":
 			// eslint-disable-next-line eqeqeq
-			return evalFormula(args[0], ctx) == evalFormula(args[1], ctx);
+			return evalFormula(args[0], ctx) === evalFormula(args[1], ctx);
 
 		case "if":
 			return evalFormula(args[0], ctx)
@@ -171,7 +168,7 @@ function evalFunctionFormula(
 
 		case "unequal":
 			// eslint-disable-next-line eqeqeq
-			return evalFormula(args[0], ctx) != evalFormula(args[1], ctx);
+			return evalFormula(args[0], ctx) !== evalFormula(args[1], ctx);
 
 		// numeric
 		// ------------------------------------------------------------------------
@@ -185,12 +182,12 @@ function evalFunctionFormula(
 
 			if (typeof v0 === "number") {
 				return v0 + +v1;
-			} else if (typeof v0 === "string") {
-				return v0 + `${v1}`;
-			} else {
-				// TODO
-				return v0;
 			}
+			if (typeof v0 === "string") {
+				return `${v0}${v1}`;
+			}
+			// TODO
+			return v0;
 		}
 
 		case "cbrt":
@@ -249,9 +246,9 @@ function evalFunctionFormula(
 			);
 
 		case "pow":
-			return Math.pow(
-				evalFormula(args[0], ctx) as number,
-				evalFormula(args[1], ctx) as number,
+			return (
+				(evalFormula(args[0], ctx) as number) **
+				(evalFormula(args[1], ctx) as number)
 			);
 
 		case "round":
@@ -301,12 +298,9 @@ function evalFunctionFormula(
 				case "object":
 					if (value instanceof Date) {
 						return format(value as Date, "MMM d, YYY");
-					} else {
-						// shouldn't ever get here
-						return `${value}`;
 					}
-
-				case "number":
+					// shouldn't ever get here
+					return `${value}`;
 				default:
 					return `${value}`;
 			}

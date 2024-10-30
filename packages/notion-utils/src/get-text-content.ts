@@ -9,7 +9,8 @@ import type * as types from "notion-types";
 export const getTextContent = (text?: types.Decoration[]): string => {
 	if (!text) {
 		return "";
-	} else if (Array.isArray(text)) {
+	}
+	if (Array.isArray(text)) {
 		return (
 			text?.reduce(
 				(prev, current) =>
@@ -17,7 +18,6 @@ export const getTextContent = (text?: types.Decoration[]): string => {
 				"",
 			) ?? ""
 		);
-	} else {
-		return text;
 	}
+	return text;
 };

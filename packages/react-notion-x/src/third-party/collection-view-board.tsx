@@ -91,7 +91,7 @@ function Board({ collectionView, collectionData, collection, padding }) {
 								// no groupResults in the data when collection is in a toggle
 								return null;
 							}
-							const group = (collectionData as any).board_columns.results![
+							const group = (collectionData as any).board_columns.results?.[
 								index
 							];
 							const schema = collection.schema[p.property];

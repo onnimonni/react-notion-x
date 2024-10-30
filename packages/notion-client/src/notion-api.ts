@@ -124,9 +124,8 @@ export class NotionAPI {
 						collectionId,
 						collectionViewId,
 					}));
-				} else {
-					return [];
 				}
+				return [];
 			});
 
 			// fetch data for all collection view instances
@@ -173,7 +172,7 @@ export class NotionAPI {
 						};
 
 						recordMap.collection_query![collectionId] = {
-							...recordMap.collection_query![collectionId],
+							...recordMap.collection_query?.[collectionId],
 							[collectionViewId]: (collectionData.result as any)
 								?.reducerResults,
 						};
@@ -387,7 +386,7 @@ export class NotionAPI {
 				select: "enum_is",
 				multi_select: "enum_contains",
 				created_time: "date_is_within",
-				["undefined"]: "is_empty",
+				undefined: "is_empty",
 			};
 
 			const reducersQuery = {};

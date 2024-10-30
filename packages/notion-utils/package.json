@@ -24,7 +24,7 @@
 		"build": "tsup",
 		"clean": "rm -rf build",
 		"dev": "tsup --watch",
-		"lint": "eslint '**/*.{ts,tsx}'",
+		"lint": "biome check",
 		"publish": "pnpm publish",
 		"test": "ava"
 	},

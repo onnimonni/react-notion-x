@@ -30,7 +30,7 @@ export const CollectionViewList: React.FC<CollectionViewProps> = ({
 	}
 
 	const blockIds =
-		(collectionData["collection_group_results"]?.blockIds ??
+		(collectionData.collection_group_results?.blockIds ??
 			collectionData.blockIds) ||
 		defaultBlockIds;
 
@@ -77,7 +77,7 @@ function List({ blockIds, collection, collectionView }) {
 										?.filter((p) => p.visible)
 										.map((p) => {
 											const schema = collection.schema[p.property];
-											const data = block && block.properties?.[p.property];
+											const data = block?.properties?.[p.property];
 
 											if (!schema) {
 												return null;

@@ -124,15 +124,14 @@ export const Search: React.FC<{
 	return (
 		<>
 			{hasSearch && (
-				<div
-					role="button"
+				<button
 					className={cs("breadcrumb", "button", "notion-search-button")}
 					onClick={onOpenSearch}
 				>
 					<SearchIcon className="searchIcon" />
 
 					{title && <span className="title">{title}</span>}
-				</div>
+				</button>
 			)}
 
 			{isSearchOpen && hasSearch && (

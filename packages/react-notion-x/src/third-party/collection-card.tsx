@@ -132,12 +132,12 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
 				if (!block.properties) return false;
 				const schema = collection.schema[p.property];
 
-				return schema.type == "url";
+				return schema.type === "url";
 			})
 			.map((p) => {
 				return block.properties[p.property];
 			})
-			?.filter((p) => p && p.length > 0 && p[0] != undefined); //case where the url is empty
+			?.filter((p) => p && p.length > 0 && p[0] !== undefined); //case where the url is empty
 	}
 	let url = null;
 	if (

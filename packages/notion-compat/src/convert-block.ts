@@ -22,7 +22,7 @@ export function convertBlock({
 		id: partialBlock.id,
 	};
 
-	if (children && children.length) {
+	if (children?.length) {
 		compatBlock.content = children;
 	}
 
@@ -56,8 +56,6 @@ export function convertBlock({
 					case "child_database":
 						compatBlock.parent_table = "table";
 						break;
-
-					case "child_page":
 					// fallthrough
 					default:
 						compatBlock.parent_table = "block";
@@ -116,7 +114,7 @@ export function convertBlock({
 		case "paragraph":
 			compatBlock.type = "text";
 			if (!block.paragraph?.rich_text?.length) {
-				delete compatBlock.properties;
+				compatBlock.properties = undefined;
 			}
 			break;
 
@@ -321,7 +319,7 @@ export function convertBlock({
 				// There is no API to get the column ID. Used the index instead.
 				compatBlock.format.table_block_column_order = Array.from(
 					{ length: blockDetails.table_width },
-					(_, i) => "" + i,
+					(_, i) => `${i}`,
 				);
 				compatBlock.format.table_block_column_format =
 					compatBlock.format.table_block_column_order.map((order) => {
@@ -398,7 +396,7 @@ export function convertBlock({
 					switch (u.hostname) {
 						case "twitter.com":
 							compatBlock.type = "tweet";
-							delete compatBlock.format;
+							compatBlock.format = undefined;
 							break;
 
 						case "maps.google.com":

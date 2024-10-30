@@ -3,7 +3,6 @@ export const defaultMapPageUrl = (rootPageId?: string) => (pageId: string) => {
 
 	if (rootPageId && pageId === rootPageId) {
 		return "/";
-	} else {
-		return `/${pageId}`;
 	}
+	return `/${pageId}`;
 };

@@ -35,9 +35,8 @@ export const Property: React.FC<IPropertyProps> = (props) => {
 
 	if (components.Property) {
 		return <components.Property {...props} />;
-	} else {
-		return <PropertyImplMemo {...props} />;
 	}
+	return <PropertyImplMemo {...props} />;
 };
 
 export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
@@ -86,7 +85,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
 						properties: block?.properties,
 					});
 
-					if (isNaN(content as number)) {
+					if (Number.isNaN(content as number)) {
 						// console.log('NaN', schema.formula)
 					}
 
@@ -115,9 +114,8 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
 							<PageTitle block={block} />
 						</components.PageLink>
 					);
-				} else {
-					return <Text value={data} block={block} />;
 				}
+				return <Text value={data} block={block} />;
 			},
 		[block, components, data, linkToTitlePage, mapPageUrl],
 	);
@@ -225,53 +223,52 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
 				const value = Number.parseFloat(data[0][0] || "0");
 				let output = "";
 
-				if (isNaN(value)) {
+				if (Number.isNaN(value)) {
 					return <Text value={data} block={block} />;
-				} else {
-					switch (schema.number_format) {
-						case "number_with_commas":
-							output = formatNumber()(value);
-							break;
-						case "percent":
-							output = formatNumber({ suffix: "%" })(value * 100);
-							break;
-						case "dollar":
-							output = formatNumber({ prefix: "$", round: 2, padRight: 2 })(
-								value,
-							);
-							break;
-						case "euro":
-							output = formatNumber({ prefix: "€", round: 2, padRight: 2 })(
-								value,
-							);
-							break;
-						case "pound":
-							output = formatNumber({ prefix: "£", round: 2, padRight: 2 })(
-								value,
-							);
-							break;
-						case "yen":
-							output = formatNumber({ prefix: "¥", round: 0 })(value);
-							break;
-						case "rupee":
-							output = formatNumber({ prefix: "₹", round: 2, padRight: 2 })(
-								value,
-							);
-							break;
-						case "won":
-							output = formatNumber({ prefix: "₩", round: 0 })(value);
-							break;
-						case "yuan":
-							output = formatNumber({ prefix: "CN¥", round: 2, padRight: 2 })(
-								value,
-							);
-							break;
-						default:
-							return <Text value={data} block={block} />;
-					}
-
-					return <Text value={[[output]]} block={block} />;
 				}
+				switch (schema.number_format) {
+					case "number_with_commas":
+						output = formatNumber()(value);
+						break;
+					case "percent":
+						output = formatNumber({ suffix: "%" })(value * 100);
+						break;
+					case "dollar":
+						output = formatNumber({ prefix: "$", round: 2, padRight: 2 })(
+							value,
+						);
+						break;
+					case "euro":
+						output = formatNumber({ prefix: "€", round: 2, padRight: 2 })(
+							value,
+						);
+						break;
+					case "pound":
+						output = formatNumber({ prefix: "£", round: 2, padRight: 2 })(
+							value,
+						);
+						break;
+					case "yen":
+						output = formatNumber({ prefix: "¥", round: 0 })(value);
+						break;
+					case "rupee":
+						output = formatNumber({ prefix: "₹", round: 2, padRight: 2 })(
+							value,
+						);
+						break;
+					case "won":
+						output = formatNumber({ prefix: "₩", round: 0 })(value);
+						break;
+					case "yuan":
+						output = formatNumber({ prefix: "CN¥", round: 2, padRight: 2 })(
+							value,
+						);
+						break;
+					default:
+						return <Text value={data} block={block} />;
+				}
+
+				return <Text value={[[output]]} block={block} />;
 			},
 		[block, data, schema],
 	);

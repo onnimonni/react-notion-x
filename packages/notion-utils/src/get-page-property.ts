@@ -59,26 +59,27 @@ export function getPageProperty(
 					];
 					const formatDate = property[0][1][0][1];
 
-					if (formatDate.type == "datetime") {
+					if (formatDate.type === "datetime") {
 						return new Date(
 							`${formatDate.start_date} ${formatDate.start_time}`,
 						).getTime();
-					} else if (formatDate.type == "date") {
+					}
+					if (formatDate.type === "date") {
 						return new Date(formatDate.start_date).getTime();
-					} else if (formatDate.type == "datetimerange") {
+					}
+					if (formatDate.type === "datetimerange") {
 						const { start_date, start_time, end_date, end_time } = formatDate;
 						const startTime = new Date(`${start_date} ${start_time}`).getTime();
 						const endTime = new Date(`${end_date} ${end_time}`).getTime();
 						return [startTime, endTime];
-					} else {
-						const startTime = new Date(formatDate.start_date).getTime();
-						const endTime = new Date(formatDate.end_date).getTime();
-						return [startTime, endTime];
 					}
+					const startTime = new Date(formatDate.start_date).getTime();
+					const endTime = new Date(formatDate.end_date).getTime();
+					return [startTime, endTime];
 				}
 
 				case "checkbox":
-					return content == "Yes";
+					return content === "Yes";
 
 				case "last_edited_time":
 					return block.last_edited_time;

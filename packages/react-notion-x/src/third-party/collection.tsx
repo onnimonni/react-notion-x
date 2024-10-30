@@ -66,13 +66,12 @@ export const Collection: React.FC<{
 				</div>
 			</NotionContextProvider>
 		);
-	} else {
-		return (
-			<NotionContextProvider {...context}>
-				<CollectionViewBlock block={block} className={className} />
-			</NotionContextProvider>
-		);
 	}
+	return (
+		<NotionContextProvider {...context}>
+			<CollectionViewBlock block={block} className={className} />
+		</NotionContextProvider>
+	);
 };
 
 const CollectionViewBlock: React.FC<{

@@ -38,9 +38,8 @@ export const Text: React.FC<{
 				if (!decorations) {
 					if (text === ",") {
 						return <span key={index} style={{ padding: "0.5em" }} />;
-					} else {
-						return <React.Fragment key={index}>{text}</React.Fragment>;
 					}
+					return <React.Fragment key={index}>{text}</React.Fragment>;
 				}
 
 				const formatted = decorations.reduce(
@@ -165,21 +164,20 @@ export const Text: React.FC<{
 											{element}
 										</components.PageLink>
 									);
-								} else {
-									return (
-										<components.Link
-											className="notion-link"
-											href={
-												linkProtocol
-													? `${linkProtocol}:${decorator[1]}`
-													: decorator[1]
-											}
-											{...linkProps}
-										>
-											{element}
-										</components.Link>
-									);
 								}
+								return (
+									<components.Link
+										className="notion-link"
+										href={
+											linkProtocol
+												? `${linkProtocol}:${decorator[1]}`
+												: decorator[1]
+										}
+										{...linkProps}
+									>
+										{element}
+									</components.Link>
+								);
 							}
 
 							case "d": {
@@ -191,21 +189,22 @@ export const Text: React.FC<{
 									const startDate = v.start_date;
 
 									return formatDate(startDate);
-								} else if (type === "datetime") {
+								}
+								if (type === "datetime") {
 									// Example: Jul 31, 2010 20:00
 									const startDate = v.start_date;
 									const startTime = v.start_time;
 
 									return `${formatDate(startDate)} ${startTime}`;
-								} else if (type === "daterange") {
+								}
+								if (type === "daterange") {
 									// Example: Jul 31, 2010 → Jul 31, 2020
 									const startDate = v.start_date;
 									const endDate = v.end_date;
 
 									return `${formatDate(startDate)} → ${formatDate(endDate)}`;
-								} else {
-									return element;
 								}
+								return element;
 							}
 
 							case "u": {
@@ -246,7 +245,7 @@ export const Text: React.FC<{
 								return element;
 						}
 					},
-					<>{text}</>,
+					text,
 				);
 
 				return <React.Fragment key={index}>{formatted}</React.Fragment>;

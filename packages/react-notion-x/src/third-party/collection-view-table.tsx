@@ -46,7 +46,7 @@ export const CollectionViewTable: React.FC<CollectionViewProps> = ({
 	}
 
 	const blockIds =
-		(collectionData["collection_group_results"]?.blockIds ??
+		(collectionData.collection_group_results?.blockIds ??
 			collectionData.blockIds) ||
 		defaultBlockIds;
 
@@ -131,7 +131,7 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
 							</div>
 						</div>
 
-						<div className="notion-table-header-placeholder"></div>
+						<div className="notion-table-header-placeholder" />
 
 						<div className="notion-table-body">
 							{blockIds?.map((blockId) => (

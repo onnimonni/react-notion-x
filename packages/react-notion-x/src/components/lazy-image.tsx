@@ -137,11 +137,11 @@ export const LazyImage: React.FC<{
 				}}
 			</LazyImageFull>
 		);
-	} else {
-		// TODO: GracefulImage doesn't seem to support refs, but we'd like to prevent
-		// invalid images from loading as error states
+	}
+	// TODO: GracefulImage doesn't seem to support refs, but we'd like to prevent
+	// invalid images from loading as error states
 
-		/*
+	/*
       NOTE: Using next/image without a pre-defined width/height is a huge pain in
       the ass. If we have a preview image, then this works fine since we know the
       dimensions ahead of time, but if we don't, then next/image won't display
@@ -152,33 +152,32 @@ export const LazyImage: React.FC<{
 
       If you have a use case that is affected by this, please open an issue on github.
     */
-		if (components.Image && forceCustomImages) {
-			return (
-				<components.Image
-					src={src}
-					alt={alt}
-					className={className}
-					style={style}
-					width={null}
-					height={height || null}
-					priority={priority}
-					onLoad={onLoad}
-				/>
-			);
-		}
-
-		// Default image element
+	if (components.Image && forceCustomImages) {
 		return (
-			<img
-				className={className}
-				style={style}
+			<components.Image
 				src={src}
 				alt={alt}
-				ref={attachZoomRef}
-				loading="lazy"
-				decoding="async"
-				{...rest}
+				className={className}
+				style={style}
+				width={null}
+				height={height || null}
+				priority={priority}
+				onLoad={onLoad}
 			/>
 		);
 	}
+
+	// Default image element
+	return (
+		<img
+			className={className}
+			style={style}
+			src={src}
+			alt={alt}
+			ref={attachZoomRef}
+			loading="lazy"
+			decoding="async"
+			{...rest}
+		/>
+	);
 };

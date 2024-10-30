@@ -76,70 +76,67 @@ export class SearchDialog extends React.Component<{
 									/>
 
 									{query && (
-										<div
-											role="button"
+										<button
 											className="clearButton"
 											onClick={this._onClearQuery}
 										>
 											<ClearIcon className="clearIcon" />
-										</div>
+										</button>
 									)}
 								</div>
 
-								{hasQuery && searchResult && (
-									<>
-										{searchResult.results.length ? (
-											<NotionContextProvider
-												{...ctx}
-												recordMap={searchResult.recordMap}
-											>
-												<div className="resultsPane">
-													{searchResult.results.map((result) => (
-														<components.PageLink
-															key={result.id}
-															className={cs("result", "notion-page-link")}
-															href={mapPageUrl(
-																result.page.id,
-																searchResult.recordMap,
-															)}
-														>
-															<PageTitle
-																block={result.page}
-																defaultIcon={defaultPageIcon}
+								{hasQuery &&
+									searchResult &&
+									(searchResult.results.length ? (
+										<NotionContextProvider
+											{...ctx}
+											recordMap={searchResult.recordMap}
+										>
+											<div className="resultsPane">
+												{searchResult.results.map((result) => (
+													<components.PageLink
+														key={result.id}
+														className={cs("result", "notion-page-link")}
+														href={mapPageUrl(
+															result.page.id,
+															searchResult.recordMap,
+														)}
+													>
+														<PageTitle
+															block={result.page}
+															defaultIcon={defaultPageIcon}
+														/>
+
+														{result.highlight?.html && (
+															<div
+																className="notion-search-result-highlight"
+																dangerouslySetInnerHTML={{
+																	__html: result.highlight.html,
+																}}
 															/>
-
-															{result.highlight?.html && (
-																<div
-																	className="notion-search-result-highlight"
-																	dangerouslySetInnerHTML={{
-																		__html: result.highlight.html,
-																	}}
-																/>
-															)}
-														</components.PageLink>
-													))}
-												</div>
-
-												<footer className="resultsFooter">
-													<div>
-														<span className="resultsCount">
-															{searchResult.total}
-														</span>
-
-														{searchResult.total === 1 ? " result" : " results"}
-													</div>
-												</footer>
-											</NotionContextProvider>
-										) : (
-											<div className="noResultsPane">
-												<div className="noResults">No results</div>
-												<div className="noResultsDetail">
-													Try different search terms
-												</div>
+														)}
+													</components.PageLink>
+												))}
 											</div>
-										)}
-									</>
-								)}
+
+											<footer className="resultsFooter">
+												<div>
+													<span className="resultsCount">
+														{searchResult.total}
+													</span>
+
+													{searchResult.total === 1 ? " result" : " results"}
+												</div>
+											</footer>
+										</NotionContextProvider>
+									) : (
+										<div className="noResultsPane">
+											<div className="noResults">No results</div>
+											<div className="noResultsDetail">
+												Try different search terms
+											</div>
+										</div>
+									))}
 
 								{hasQuery && !searchResult && searchError && (
 									<div className="noResultsPane">
@@ -171,9 +168,8 @@ export class SearchDialog extends React.Component<{
 				searchError: null,
 			});
 			return;
-		} else {
-			this._search();
 		}
+		this._search();
 	};
 
 	_onClearQuery = () => {
