@@ -1,6 +1,6 @@
 {
   "name": "@onnimonni/notion-utils",
-  "version": "6.16.1",
+  "version": "6.16.3-alpha.0",
   "type": "module",
   "description": "Useful utilities for working with Notion data. Isomorphic.",
   "repository": "NotionX/react-notion-x",
@@ -28,10 +28,10 @@
     "test": "ava"
   },
   "dependencies": {
+    "@onnimonni/notion-types": "^6.16.3-alpha.0",
     "is-url-superb": "^6.1.0",
     "mem": "^9.0.2",
     "normalize-url": "^7.0.3",
-    "@onnimonni/notion-types": "^6.16.1",
     "p-queue": "^7.2.0"
   },
   "ava": {
