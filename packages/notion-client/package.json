@@ -36,9 +36,7 @@
       "ts": "module"
     },
     "nodeArguments": [
-      "--loader=ts-node/esm",
-      "--no-warnings",
-      "--experimental-specifier-resolution=node"
+      "--import=tsimp"
     ]
   }
 }
