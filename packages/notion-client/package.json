@@ -1,6 +1,6 @@
 {
   "name": "@onnimonni/notion-client",
-  "version": "6.17.0-alpha.0",
+  "version": "6.17.0-alpha.1",
   "type": "module",
   "description": "Robust TypeScript client for the unofficial Notion API.",
   "repository": "NotionX/react-notion-x",
@@ -23,8 +23,8 @@
     "test": "ava"
   },
   "dependencies": {
-    "@onnimonni/notion-types": "^6.17.0-alpha.0",
-    "@onnimonni/notion-utils": "^6.17.0-alpha.0",
+    "@onnimonni/notion-types": "^6.17.0-alpha.1",
+    "@onnimonni/notion-utils": "^6.17.0-alpha.1",
     "ky": "^1.0.0",
     "p-map": "^5.3.0"
   },
