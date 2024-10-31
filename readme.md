@@ -49,7 +49,7 @@ And if you want even more control, then you're in the right place! 👇👇
 First you'll want to fetch the content for a Notion page:
 
 ```ts
-import { NotionAPI } from 'notion-client'
+import { NotionAPI } from '@onnimonni/notion-client'
 
 const notion = new NotionAPI()
 

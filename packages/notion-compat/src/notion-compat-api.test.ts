@@ -21,7 +21,7 @@ test('dummy', async (t) => {
 
 // import { Client } from '@notionhq/client'
 // import { promises as fs } from 'fs'
-// import { NotionAPI } from 'notion-client'
+// import { NotionAPI } from '@onnimonni/notion-client'
 
 // import { NotionCompatAPI } from './notion-compat-api'
 

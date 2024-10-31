@@ -5,8 +5,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import { ExtendedRecordMap } from 'notion-types'
-import { getPageTitle } from 'notion-utils'
+import { ExtendedRecordMap } from '@onnimonni/notion-types'
+import { getPageTitle } from '@onnimonni/notion-utils'
 import { NotionRenderer } from 'react-notion-x'
 import TweetEmbed from 'react-tweet-embed'
 

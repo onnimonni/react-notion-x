@@ -1,7 +1,11 @@
+import {
+  ExtendedRecordMap,
+  PreviewImage,
+  PreviewImageMap
+} from '@onnimonni/notion-types'
+import { getPageImageUrls } from '@onnimonni/notion-utils'
 import got from 'got'
 import lqip from 'lqip-modern'
-import { ExtendedRecordMap, PreviewImage, PreviewImageMap } from 'notion-types'
-import { getPageImageUrls } from 'notion-utils'
 import pMap from 'p-map'
 import pMemoize from 'p-memoize'
 import { defaultMapImageUrl } from 'react-notion-x'

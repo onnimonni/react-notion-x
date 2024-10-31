@@ -1,4 +1,4 @@
-import * as types from 'notion-types'
+import * as types from '@onnimonni/notion-types'
 
 import { getBlockIcon } from './get-block-icon'
 import { isUrl } from './is-url'

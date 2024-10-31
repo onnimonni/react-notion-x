@@ -1,7 +1,7 @@
 import * as React from 'react'
 
-import { ExtendedRecordMap } from 'notion-types'
-import { getAllPagesInSpace } from 'notion-utils'
+import { ExtendedRecordMap } from '@onnimonni/notion-types'
+import { getAllPagesInSpace } from '@onnimonni/notion-utils'
 import { defaultMapPageUrl } from 'react-notion-x'
 
 import * as notion from '../lib/notion'

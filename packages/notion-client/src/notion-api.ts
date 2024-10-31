@@ -1,13 +1,13 @@
 // import { promises as fs } from 'fs'
-import * as notion from 'notion-types'
-import ky from 'ky'
-import type { Options as KyOptions } from 'ky'
+import * as notion from '@onnimonni/notion-types'
 import {
   getBlockCollectionId,
   getPageContentBlockIds,
   parsePageId,
   uuidToId
-} from 'notion-utils'
+} from '@onnimonni/notion-utils'
+import ky from 'ky'
+import type { Options as KyOptions } from 'ky'
 import pMap from 'p-map'
 
 import * as types from './types'

@@ -15,7 +15,7 @@
 
 ```ts
 import { Client } from '@notionhq/client'
-import { NotionCompatAPI } from 'notion-compat'
+import { NotionCompatAPI } from '@onnimonni/notion-compat'
 
 const notion = new NotionCompatAPI(
   new Client({ auth: process.env.NOTION_TOKEN })

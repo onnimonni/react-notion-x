@@ -3,7 +3,7 @@ import * as React from 'react'
 import {
   Block as BlockType,
   SyncPointerBlock as SyncPointerBlockType
-} from 'notion-types'
+} from '@onnimonni/notion-types'
 
 import { NotionBlockRenderer } from '../renderer'
 

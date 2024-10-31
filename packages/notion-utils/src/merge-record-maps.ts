@@ -1,4 +1,4 @@
-import { ExtendedRecordMap } from 'notion-types'
+import { ExtendedRecordMap } from '@onnimonni/notion-types'
 
 export function mergeRecordMaps(
   recordMapA: ExtendedRecordMap,

@@ -27,7 +27,12 @@
 
     "baseUrl": ".",
     "paths": {
-      "*": ["types/*"]
+      "*": ["types/*"],
+      "@onnimonni/notion-utils": ["packages/notion-utils/build"],
+      "@onnimonni/notion-types": ["packages/notion-types"],
+      "@onnimonni/notion-client": ["packages/notion-client/build"],
+      "@onnimonni/notion-compat": ["packages/notion-compat/build"],
+      "@onnimonni/react-notion-x": ["packages/react-notion-x/build"]
     }
   }
 }

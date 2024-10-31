@@ -1,7 +1,11 @@
 import { Client } from '@notionhq/client'
-import { NotionAPI } from 'notion-client'
-import { NotionCompatAPI } from 'notion-compat'
-import { ExtendedRecordMap, SearchParams, SearchResults } from 'notion-types'
+import { NotionAPI } from '@onnimonni/notion-client'
+import { NotionCompatAPI } from '@onnimonni/notion-compat'
+import {
+  ExtendedRecordMap,
+  SearchParams,
+  SearchResults
+} from '@onnimonni/notion-types'
 
 import { previewImagesEnabled, useOfficialNotionAPI } from './config'
 import { getPreviewImageMap } from './preview-images'

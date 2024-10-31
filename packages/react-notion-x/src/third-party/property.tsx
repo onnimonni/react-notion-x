@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import * as types from 'notion-types'
+import * as types from '@onnimonni/notion-types'
+import { FormulaResult } from '@onnimonni/notion-types'
 import format from 'date-fns/format/index.js'
 import formatNumber from 'format-number'
-import { FormulaResult } from 'notion-types'
 
 import { Checkbox } from '../components/checkbox'
 import { GracefulImage } from '../components/graceful-image'

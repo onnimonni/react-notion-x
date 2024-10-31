@@ -1,4 +1,4 @@
-import { ExtendedRecordMap } from 'notion-types'
+import { ExtendedRecordMap } from '@onnimonni/notion-types'
 import { NotionRenderer } from 'react-notion-x'
 import { Code } from 'react-notion-x/build/third-party/code'
 import { Collection } from 'react-notion-x/build/third-party/collection'

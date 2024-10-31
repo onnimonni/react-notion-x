@@ -1,4 +1,4 @@
-import { ExtendedRecordMap } from 'notion-types'
+import { ExtendedRecordMap } from '@onnimonni/notion-types'
 
 import { getBlockTitle } from './get-block-title'
 

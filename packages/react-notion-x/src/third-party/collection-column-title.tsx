@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { CollectionPropertySchema } from 'notion-types'
+import { CollectionPropertySchema } from '@onnimonni/notion-types'
 
 import { PropertyIcon } from '../icons/property-icon'
 
